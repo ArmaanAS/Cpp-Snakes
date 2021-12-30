@@ -282,6 +282,7 @@ void getInput(Direction const& d, Snake const& s) {
 		else if ((GetAsyncKeyState(VK_LEFT) || GetAsyncKeyState(0x41)) && snake.getDir() != RIGHT) {
 			direction = LEFT;
 		}
+		Sleep(1000 / 30);
 	}
 }
 
