@@ -1,4 +1,3 @@
-// Snakes.cpp : Defines the entry point for the console application.
 #include "stdafx.h"
 #include <iostream>
 #include <stdio.h>
@@ -9,9 +8,9 @@
 using namespace std;
 
 
-int const WIDTH = 30, HEIGHT = 30;
+int const WIDTH = 30, HEIGHT = 15;
 enum SnakeType { HEAD = '\xCE', BODY = 1 };
-enum Direction { UP = 0, RIGHT = 1, DOWN = 2, LEFT = 3 };
+enum Direction { UP, RIGHT, DOWN, LEFT };
 enum Colour {
 	CYAN = 3, GREY = 8, DARK_BLUE = 9, GREEN = 10, BLUE = 11,
 	RED = 12, PINK = 13, YELLOW = 14, DEFAULT = 15
@@ -19,9 +18,7 @@ enum Colour {
 
 void gotoXY(int x, int y)
 {
-	COORD coord;
-	coord.X = x;
-	coord.Y = y;
+	COORD coord = { x, y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
@@ -246,7 +243,8 @@ public:
 		return y;
 	};
 private:
-	int x, y;
+	int x = 0, 
+		y = 0;
 	Colour col = RED;
 };
 
